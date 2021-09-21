@@ -70,7 +70,7 @@ const products = [
     description: "Smart TV:Procaster",
     price: 400,
     ratings: [{ userId: "fg12cy", rate: 5 }],
-    likes: [],
+    likes: ["fg12cy"],
   },
 ];
 
@@ -174,11 +174,12 @@ const likeProduct = (pid, uid) => {
     if (product._id == pid) {
       for (let like_by of product.likes) {
         if (uid == like_by) {
-          console.log("ssplice ");
           let ind = product.likes.indexOf(uid);
-          product.likes.splice(ind, 1);
-        } else {
-          product.likes.push(uid);
+          if (ind) {
+            product.likes.splice(ind, 1);
+          } else {
+            product.likes.push(uid);
+          }
         }
       }
     }

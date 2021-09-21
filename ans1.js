@@ -123,11 +123,23 @@ const copyObjectWithoutMutaingUpdate = (skillType, skill) => {
       newObject.skills[key] = temp_arr;
     }
   }
-  console.log(newObject.skills);
-  console.log(" orignal.......... ", student3.skills);
+  // console.log(newObject.skills);
+  // console.log(" orignal.......... ", student3.skills);
 };
 
 copyObjectWithoutMutaingUpdate("frontEnd", { skill: "Bootstrap", level: 8 });
 // copyObjectWithoutMutaingUpdate("backEnd", { skill: "Express", level: 9 });
 // copyObjectWithoutMutaingUpdate("dataBase", { skill: "SQL", level: 9 });
 // copyObjectWithoutMutaingUpdate("dataScience", "SQL");
+
+const keyLength = Object.keys(student3).length; // a
+console.log("keyLength : ", keyLength);
+
+const valuesLength = Object.values(student3).length; //b
+console.log("valuesLength :", valuesLength);
+
+const SkillKeyLength = Object.keys(student3.skills).length; //c
+console.log("SkillKeyLength : ", SkillKeyLength);
+
+const allKeys = Object.keys(student3); //e
+console.log("All keys :", allKeys);
