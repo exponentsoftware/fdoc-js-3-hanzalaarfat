@@ -97,6 +97,7 @@ const student3 = {
       { skill: "CSS", level: 8 },
       { skill: "JS", level: 8 },
       { skill: "React", level: 9 },
+      { skill: "React", level: 9 },
     ],
     backEnd: [
       { skill: "Node", level: 7 },
@@ -108,22 +109,25 @@ const student3 = {
 };
 
 const copyObjectWithoutMutaingUpdate = (skillType, skill) => {
-  const newObject = { ...student3 };
-
+  const newObject = Object.assign({}, student3);
+  // newObject.name = "Hanzala";
+  // console.log(newObject.name);   Query for asking
+  // console.log(student3.name);
+  let temp_arr = [];
   for (let key in newObject.skills) {
     if ([key] == skillType) {
       // like fontend, backend, database
 
-      newObject.skills[key].push(skill);
+      temp_arr = newObject.skills[key];
+      temp_arr.push(skill);
+      newObject.skills[key] = temp_arr;
     }
-
-    // console.log(key, newObject[key]);
   }
   console.log(newObject.skills);
-  // console.log(student3.age);
+  console.log(" orignal.......... ", student3.skills);
 };
 
 copyObjectWithoutMutaingUpdate("frontEnd", { skill: "Bootstrap", level: 8 });
-copyObjectWithoutMutaingUpdate("backEnd", { skill: "Express", level: 9 });
-copyObjectWithoutMutaingUpdate("dataBase", { skill: "SQL", level: 9 });
-copyObjectWithoutMutaingUpdate("dataScience", "SQL");
+// copyObjectWithoutMutaingUpdate("backEnd", { skill: "Express", level: 9 });
+// copyObjectWithoutMutaingUpdate("dataBase", { skill: "SQL", level: 9 });
+// copyObjectWithoutMutaingUpdate("dataScience", "SQL");
